@@ -22,4 +22,6 @@ ____________________________
 ## Data Dictionary
 
 |   Feature      |  Data Type   | Description    |
+| :------------- | :----------: | -----------: |
 | age | int64 | Age of patient |
+| sex | 
