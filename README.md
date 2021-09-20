@@ -24,4 +24,16 @@ ____________________________
 |   Feature      |  Data Type   | Description    |
 | :------------- | :----------: | -----------: |
 | age | int64 | Age of patient |
-| sex | 
+| is_male | int64 | 0 = Female. 1 = Male |
+| chest_pain | int64 | 
+| resting_blood_pressure | int64 | 
+| cholesterol | int64 | 
+| fasting_blood_sugar | int64 | 
+| restecg |int64 | 
+| max_heart_rate | int64 | 
+| exang | int64 | 
+| oldpeak | float64 | 
+| slope | int64 | 
+| ca | int64 | 
+| thal | int64 | 
+| target | int64 | 

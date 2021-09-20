@@ -48,14 +48,30 @@ def split_data(df):
     variable was correctcly stratified into each dataframe.
     '''
     
-    ## splitting the data stratifying for out target variable is_fraud
+    ## splitting the data stratifying for out target variable
     train_validate, test = train_test_split(df, test_size=.2, 
-                                            random_state=123)
+                                        random_state=123,
+                                        stratify = df.target)
     train, validate = train_test_split(train_validate, test_size=.3, 
-                                       random_state=123)
+                                   random_state=123,
+                                   stratify= train_validate.target)
     
     print('Making Sure Our Shapes Look Good')
     print(f'Train: {train.shape}, Validate: {validate.shape}, Test: {test.shape}')
+    
+    print('Making Sure We Have Positive Cases In Each Split\n')
+    
+    print('Train Target Value Counts:')
+    print(train.target.value_counts())
+    print('----------------------------\n')
+    
+    print('Validate Target Value Counts:')
+    print(validate.target.value_counts())
+    print('----------------------------\n')
+    
+    print('Test Target Value Counts:')
+    print(test.target.value_counts())
+    print('----------------------------\n')
     
     return train, validate, test
 
