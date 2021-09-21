@@ -36,4 +36,4 @@ ____________________________
 | slope | int64 | 
 | ca | int64 | 
 | thal | int64 | 
-| target | int64 | 
+| target | int64 | 0 = no/less chance of heart attack and 1 = more chance of heart attack |
