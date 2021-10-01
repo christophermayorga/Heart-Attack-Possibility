@@ -39,7 +39,7 @@ def clean_heart_data(df):
     
     return df
 
-def split_data(df):
+def split_data(df, target):
     '''
     This function is designed to split out data for modeling into train, validate, and test 
     dataframes.
@@ -55,6 +55,18 @@ def split_data(df):
     train, validate = train_test_split(train_validate, test_size=.3, 
                                    random_state=123,
                                    stratify= train_validate.target)
+    
+    # split train into X (dataframe, drop target) & y (series, keep target only)
+    X_train = train.drop(columns=[target])
+    y_train = train[target]
+    
+    # split validate into X (dataframe, drop target) & y (series, keep target only)
+    X_validate = validate.drop(columns=[target])
+    y_validate = validate[target]
+    
+    # split test into X (dataframe, drop target) & y (series, keep target only)
+    X_test = test.drop(columns=[target])
+    y_test = test[target]
     
     print('Making Sure Our Shapes Look Good')
     print(f'Train: {train.shape}, Validate: {validate.shape}, Test: {test.shape}')
