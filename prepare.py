@@ -75,6 +75,29 @@ def split_data(df):
     
     return train, validate, test
 
+def get_object_cols(df):
+    '''
+    This function takes in a dataframe and identifies the columns that are object types
+    and returns a list of those column names. 
+    '''
+    # create a mask of columns whether they are object type or not
+    mask = np.array(df.dtypes == "object")
+
+        
+    # get a list of the column names that are objects (from the mask)
+    object_cols = df.iloc[:, mask].columns.tolist()
+    
+    return object_cols
+
+def get_numeric_X_cols(X_train, object_cols):
+    '''
+    takes in a dataframe and list of object column names
+    and returns a list of all other columns names, the non-objects. 
+    '''
+    numeric_cols = [col for col in X_train.columns.values if col not in object_cols]
+    
+    return numeric_cols
+
 def min_max_scale(X_train, X_validate, X_test, numeric_cols):
     '''
     this function takes in 3 dataframes with the same columns, 
