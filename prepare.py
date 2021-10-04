@@ -85,7 +85,7 @@ def split_data(df, target):
     print(test.target.value_counts())
     print('----------------------------\n')
     
-    return train, validate, test
+    return train, validate, test, X_train, y_train, X_validate, y_validate, X_test, y_test
 
 def get_object_cols(df):
     '''
