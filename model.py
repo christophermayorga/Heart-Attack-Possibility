@@ -22,7 +22,6 @@ import seaborn as sns
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, PowerTransformer
 from sklearn.cluster import KMeans
 
-import preprocessing_permits as pr
 import numpy as np
 
 ############################################################################################################
@@ -166,12 +165,12 @@ def select_kbest(x, y, k):
     f_selector = SelectKBest(f_regression, k=k)
     
     # find the top 8 X's correlated with y
-    f_selector.fit(X_train_scaled, y_train)
+    f_selector.fit(x, y)
     
     # boolean mask of whether the column was selected or not. 
     feature_mask = f_selector.get_support()
     
-    f_feature = X_train_scaled.iloc[:,feature_mask].columns.tolist()
+    f_feature = x.iloc[:,feature_mask].columns.tolist()
     
     return f_feature
 
