@@ -79,7 +79,7 @@ def run_clf_loop(train_scaled, validate_scaled, y_validate, y_train, max_range):
         score = clf.score(train_scaled, y_train)
         validate_score = clf.score(validate_scaled, y_validate)
         _, _, report = accuracy_report(clf, y_pred, y_train)
-        recall_score = report["True"].recall
+        recall_score = report["1"].recall
         print(f"Max_depth = {i}, accuracy_score = {score:.2f}. validate_score = {validate_score:.2f}, recall = {recall_score:.2f}")
 
 def clf_feature_importances(clf, train_scaled):
